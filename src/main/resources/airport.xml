@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airplane id="1">
+    <airline id="1">
+        <name>American Eagle Airlines</name>
+        <code>EGF</code>
+    </airline>
+
+    <type id="1">
+        <brand>Boeing</brand>
+        <model>Boeing 787-8</model>
+    </type>
+
+    <capacity>50</capacity>
+
+    <packages>
+        <package id="1">
+            <name>Hannibal Lecter</name>
+            <address> 217 N Charles St, Baltimore, MD 21201</address>
+        </package>
+    </packages>
+
+    <employees>
+        <employee id="1">
+            <firstName>Will</firstName>
+            <lastName>Graham</lastName>
+            <license id="1">
+                <certificationNo>20803264</certificationNo>
+                <issued>1996-07-09</issued>
+                <expired>2030-09-08</expired>
+            </license>
+        </employee>
+    </employees>
+</airplane>
