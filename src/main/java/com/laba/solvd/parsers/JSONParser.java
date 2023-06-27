@@ -14,9 +14,8 @@ public class JSONParser implements Parser {
         Airplane airplane = null;
 
         try (FileInputStream jsonFis = new FileInputStream(path);) {
-            File jsonFile = new File(path);
             ObjectMapper objMapper = new ObjectMapper();
-            airplane = objMapper.readValue(jsonFile, Airplane.class);
+            airplane = objMapper.readValue(jsonFis, Airplane.class);
 
             System.out.println("Airplane ID: " + airplane.getId() + "\n");
 
@@ -53,6 +52,6 @@ public class JSONParser implements Parser {
             System.out.println(e.getMessage());
         }
 
-        return null;
+        return airplane;
     }
 }

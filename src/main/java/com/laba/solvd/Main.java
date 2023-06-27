@@ -29,5 +29,8 @@ public class Main {
         System.out.println("\n*** JAXB PARSER ***");
         parser = new JAXBParser();
         Airplane jaxbAirplane = parser.parse(xmlPath);
+
+        System.out.println("\nARE ALL AIRPLANE OBJECTS THE SAME?");
+        System.out.println(staxAirplane.equals(jsonAirplane) && jsonAirplane.equals(jaxbAirplane));
     }
 }
