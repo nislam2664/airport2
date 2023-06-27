@@ -1,5 +1,7 @@
 package com.laba.solvd;
 
+import com.laba.solvd.model.Airplane;
+import com.laba.solvd.parsers.StAXParser;
 import com.laba.solvd.validator.Validator;
 
 public class Main {
@@ -10,5 +12,11 @@ public class Main {
 
         System.out.println("*** XML VALIDATOR ***");
         Validator.validateXMLWithXSD(xmlPath, xsdPath);
+
+        System.out.println("\n*** STAX PARSER ***");
+        StAXParser staxParser = new StAXParser();
+        Airplane staxAirplane = staxParser.parse(xmlPath);
+
+
     }
 }
