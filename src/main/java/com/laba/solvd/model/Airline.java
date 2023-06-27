@@ -1,16 +1,22 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Airline {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("name")
     @XmlElement
     private String name;
+    @JsonProperty("code")
     @XmlElement
     private String code;
 

@@ -1,5 +1,9 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.laba.solvd.parsers.DateHandler;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,12 +13,18 @@ import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class License {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("certificationNo")
     @XmlElement
     private int certificationNo;
+    @JsonDeserialize(using = DateHandler.class)
+    @JsonProperty("issued")
     @XmlElement
     private LocalDate issued;
+    @JsonDeserialize(using = DateHandler.class)
+    @JsonProperty("expired")
     @XmlElement
     private LocalDate expired;
 

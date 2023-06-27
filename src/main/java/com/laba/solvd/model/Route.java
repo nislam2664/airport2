@@ -1,5 +1,7 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,17 +12,23 @@ import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Route {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("fromAirport")
     @XmlElement
     private Airport fromAirport;
+    @JsonProperty("toAirport")
     @XmlElement
     private Airport toAirport;
+    @JsonProperty("departure")
     @XmlElement
     private LocalTime departure;
+    @JsonProperty("arrival")
     @XmlElement
     private LocalTime arrival;
 
+    @JsonProperty("flights")
     @XmlElementWrapper(name = "flights")
     @XmlElement(name = "flight")
     private List<Flight> flights;

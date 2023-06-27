@@ -1,25 +1,35 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import javax.xml.bind.annotation.*;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
 import java.util.Objects;
 
+@JsonRootName("airplane")
 @XmlRootElement(name = "airplane")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Airplane {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("airline")
     @XmlElement
     private Airline airline;
+    @JsonProperty("type")
     @XmlElement
     private AirplaneType type;
+    @JsonProperty("capacity")
     @XmlElement
     private int capacity;
 
+    @JsonProperty("packages")
     @XmlElementWrapper(name = "packages")
     @XmlElement(name = "package")
     private List<Package> packages;
+
+    @JsonProperty("employees")
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
     private List<Employee> employees;
@@ -75,10 +85,12 @@ public class Airplane {
         this.capacity = capacity;
     }
 
+    @JsonProperty("packages")
     public void setPackages(List<Package> packages) {
         this.packages = packages;
     }
 
+    @JsonProperty("employees")
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }

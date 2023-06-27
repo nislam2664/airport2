@@ -1,5 +1,7 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,13 +11,17 @@ import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Reservation {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("seatNo")
     @XmlElement
     private String seatNo;
+    @JsonProperty("price")
     @XmlElement
     private float price;
 
+    @JsonProperty("passengers")
     @XmlElementWrapper(name = "passengers")
     @XmlElement(name = "passenger")
     private List<Passenger> passengers;

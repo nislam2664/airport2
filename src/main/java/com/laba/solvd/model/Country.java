@@ -1,20 +1,29 @@
 package com.laba.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Country {
+    @JsonProperty("id")
     @XmlElement
     private Integer id;
+    @JsonProperty("name")
     @XmlElement
     private String name;
+    @JsonProperty("code")
     @XmlElement
     private String code;
 
+    @JsonProperty("airports")
+    @XmlElementWrapper(name = "airports")
+    @XmlElement(name = "airport")
     private List<Airport> airports;
 
     public Country() {
