@@ -18,10 +18,10 @@ import java.util.List;
 public class StAXParser implements Parser {
 
     @Override
-    public Airplane parse(String xmlPath) {
+    public Airplane parse(String path) {
         Airplane airplane = null;
 
-        try (FileInputStream xmlFis = new FileInputStream(xmlPath)) {
+        try (FileInputStream xmlFis = new FileInputStream(path)) {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
             XMLEventReader reader = xmlInputFactory.createXMLEventReader(xmlFis);
 

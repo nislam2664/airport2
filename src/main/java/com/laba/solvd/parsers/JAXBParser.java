@@ -1,22 +1,24 @@
 package com.laba.solvd.parsers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laba.solvd.model.Airplane;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
-public class JSONParser implements Parser {
+public class JAXBParser implements Parser {
 
     @Override
     public Airplane parse(String path) {
         Airplane airplane = null;
+        File xmlFile = new File(path);
 
-        try (FileInputStream jsonFis = new FileInputStream(path);) {
-            File jsonFile = new File(path);
-            ObjectMapper objMapper = new ObjectMapper();
-            airplane = objMapper.readValue(jsonFile, Airplane.class);
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(Airplane.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+
+            airplane = (Airplane) jaxbUnmarshaller.unmarshal(xmlFile);
 
             System.out.println("Airplane ID: " + airplane.getId() + "\n");
 
@@ -49,10 +51,11 @@ public class JSONParser implements Parser {
                 System.out.println("\t\tIssued: "+ employee.getLicense().getIssued().toString());
                 System.out.println("\t\tExpired: "+ employee.getLicense().getExpired().toString());
             });
-        } catch (IOException e) {
+        } catch (JAXBException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
-        return null;
+        return airplane;
     }
 }

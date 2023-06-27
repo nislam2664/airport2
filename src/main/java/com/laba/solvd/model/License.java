@@ -2,6 +2,7 @@ package com.laba.solvd.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.laba.solvd.parsers.DateAdapter;
 import com.laba.solvd.parsers.DateHandler;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,10 +23,12 @@ public class License {
     @JsonDeserialize(using = DateHandler.class)
     @JsonProperty("issued")
     @XmlElement
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate issued;
     @JsonDeserialize(using = DateHandler.class)
     @JsonProperty("expired")
     @XmlElement
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate expired;
 
     public License() {
