@@ -91,7 +91,7 @@ public class StAXParser implements Parser {
 
                             System.out.println("\tLicense: ");
                             System.out.println("\t\tLicense ID: "+ employee.getLicense().getId());
-                            System.out.println("\t\tLicense Certification No.: "+ employee.getLicense().getCertificationNo());
+                            System.out.println("\t\tLicense Certification #: "+ employee.getLicense().getCertificationNo());
                             System.out.println("\t\tIssued: "+ employee.getLicense().getIssued().toString());
                             System.out.println("\t\tExpired: "+ employee.getLicense().getExpired().toString());
                         });
