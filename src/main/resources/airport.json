@@ -1,0 +1,39 @@
+{
+  "id": 1,
+
+  "airline": {
+      "id": 837371,
+      "name": "American Eagle Airlines",
+      "code": "EGF"
+  },
+
+  "type": {
+      "id": 9124566,
+      "brand": "Boeing",
+      "model": "Boeing 787-8"
+    },
+
+  "capacity": 50,
+
+  "packages": [
+    {
+     "id": 112136581,
+      "name": "Hannibal Lecter",
+      "address": "217 N Charles St, Baltimore, MD 21201"
+    }
+  ],
+
+  "employees": [
+    {
+      "id": 91487631,
+      "firstName": "Will",
+      "lastName": "Graham",
+      "license": {
+        "id": 76940123,
+        "certificationNo": 20803264,
+        "issued": "1996-07-09",
+        "expired": "2030-09-08"
+      }
+    }
+  ]
+}
